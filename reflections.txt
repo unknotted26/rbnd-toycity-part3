@@ -1,8 +1,12 @@
 1. How long did you spend working on this project?
+    About 15 hours total.
 
 2. What was the most rewarding challenge you conquered?
+    Using new Array methods such as index & select.
 
 3. What two additional features did you build? Why?
+    The customer is able to return the product.
+    I added the attribute date to Transaction.
 
 4. Where do you still have room to grow?
-
+    My creativity needs to be improved. And this course is helping me!

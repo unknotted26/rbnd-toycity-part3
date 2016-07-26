@@ -19,24 +19,21 @@ class Product
   ######## accessors ##########################
   #############################################
 
+  # returns Product object; nil if not found
   def self.find_by_title(item_title)
-    @@products.each do |prod|
-      if prod.title == item_title
-        return prod
-      end
-    end
+    @@products.find{|prod| prod.title == item_title}
   end
 
   def in_stock?
     !stock.equal?(0) #returns true of items are in stock
   end
 
-  # return array of all products with stock > 0
+  # return an array of all products with stock > 0
   def self.in_stock
     @@products.select{|x| x.stock > 0}
   end
 
-  #used with array returned by in_stock
+  # used with array returned by in_stock
   def include?(product)
     @@products.index(product)
   end

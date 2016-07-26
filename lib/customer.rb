@@ -2,7 +2,6 @@ class Customer
   attr_reader :name
   @@customers = []
   def initialize(options={})
-    puts "Adding new customer"
     @name = options[:name]
     add_to_customers
   end
@@ -11,8 +10,9 @@ class Customer
     @@customers
   end
 
+  # returns Customer object; nil if not found
   def self.find_by_name(customer_name)
-    @@customers[@@customers.index{|cust| cust.name == customer_name}]
+    @@customers.find{|cust| cust.name == customer_name}
   end
 
   def purchase(product)
@@ -21,6 +21,10 @@ class Customer
     else
       raise OutOfStockError, "OutOfStockError: '#{product.title}' is out of stock."
     end
+  end
+
+  def return(product)
+#    Transaction.rollback(self, product)
   end
 
   private
