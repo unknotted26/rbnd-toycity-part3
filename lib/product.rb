@@ -1,7 +1,7 @@
 class Product
   attr_reader :title
   attr_reader :price
-  attr_reader :stock
+  attr_accessor :stock
   @@products = []
 
   def initialize(options={})

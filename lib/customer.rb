@@ -15,6 +15,14 @@ class Customer
     @@customers[@@customers.index{|cust| cust.name == customer_name}]
   end
 
+  def purchase(product)
+    if product.stock > 0 # if in stock
+      Transaction.new(self, product)
+    else
+      raise OutOfStockError, "OutOfStockError: '#{product.title}' is out of stock."
+    end
+  end
+
   private
 
   def add_to_customers
