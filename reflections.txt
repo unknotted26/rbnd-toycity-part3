@@ -5,8 +5,10 @@
     Using new Array methods such as index & select.
 
 3. What two additional features did you build? Why?
-    The customer is able to return the product.
-    I added the attribute date to Transaction.
-
+    - The customer has the ability (function) to return the product.
+    - I added the attribute date to Transaction.
+    - I added a brand attribute to Products.
+    - Created a gross_proft() in transaction.rb.
+    - I added InvalidTransactionID to errors.rb which is useful
 4. Where do you still have room to grow?
     My creativity needs to be improved. And this course is helping me!

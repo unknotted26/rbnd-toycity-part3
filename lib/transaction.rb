@@ -18,17 +18,19 @@ class Transaction
     @@transactions
   end
 
-  # returns a transaction object
+  # returns a transaction object; nil if invalid id
   def self.find(transaction_id)
-    @@transactions[transaction_id-1]
+    if transaction_id > 0
+      @@transactions[transaction_id-1]
+    end
   end
 
-  def rollback(customer, product)
-
+  def self.rollback(customer, product)
+    @@transactions.reject!{|t| t.customer == customer && t.product == product; product.stock+=1}
   end
 
-  def self.remove_transaction
-
+  def self.gross_profit
+    @@transactions.inject(0){|sum, t| sum + t.product.price}
   end
 
 end

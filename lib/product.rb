@@ -2,22 +2,24 @@ class Product
   attr_reader :title
   attr_reader :price
   attr_accessor :stock
+  attr_reader :brand
   @@products = []
 
   def initialize(options={})
     @title = options[:title]
     @price = options[:price]
     @stock = options[:stock]
+    @brand = options[:brand]
     add_to_products
-  end
-
-  def self.all
-    @@products
   end
 
   #############################################
   ######## accessors ##########################
   #############################################
+
+  def self.all
+    @@products
+  end
 
   # returns Product object; nil if not found
   def self.find_by_title(item_title)

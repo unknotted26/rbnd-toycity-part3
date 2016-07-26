@@ -5,9 +5,9 @@ require_relative "lib/transaction"
 
 # PRODUCTS
 
-Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
-Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12)
-Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0)
+Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55, brand: "LEGO")
+Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12, brand: "NanoBlock")
+Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0, brand: "LEGO")
 
 puts Product.all.count # Should return 3
 
@@ -63,11 +63,15 @@ puts Transaction.all.count # Should return 2
 transaction2 = Transaction.find(2)
 puts transaction2.product == nanoblock # Should return true
 
-#walter.purchase(firehouse)
+# walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
 
 #### NEW FEATURES ####
 puts "\nTESTING NEW FEATURES\n"
+puts "Total transactions: #{Transaction.all.count}"
+Transaction.gross_profit
 walter.return(nanoblock)
-# This should increase stock & removed from @@transactions
+# This will increase Product's stock & remove from ALL @@transactions made by this customer for THIS product.
+puts "Total transactions: #{Transaction.all.count}"
+puts "Nanoblock.stock = #{nanoblock.stock}"
 

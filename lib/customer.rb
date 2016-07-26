@@ -24,7 +24,7 @@ class Customer
   end
 
   def return(product)
-#    Transaction.rollback(self, product)
+    Transaction.rollback(self, product)
   end
 
   private
